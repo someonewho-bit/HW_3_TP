@@ -5,4 +5,10 @@ if [ "$1" = "build_generator" ]; then
 
 elif [ "$1" = "run_generator" ]; then
     docker run --rm -v "$(pwd)/data:/data" art-generator
+    
+elif [ "$1" = "build_reporter" ]; then
+    docker build -t art-reporter ./reporter
+
+elif [ "$1" = "run_reporter" ]; then
+    docker run --rm -v "$(pwd)/data:/app/data" art-reporter
 fi
